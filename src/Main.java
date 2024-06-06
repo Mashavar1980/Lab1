@@ -12,6 +12,7 @@ public class Main {
         JTextField smallField = new JTextField("300, 250, 25, 45, 20");
         JTextField numbers = new JTextField("0,1,2,3,4,5,6,7,8,9,М,А,Р,И,Я");
         JButton button = new JButton("Ввод");
+        JButton clearButton = new JButton("Очистка");
         JFrame f = new JFrame("Swing Paint Demo");
         MyPanel myPanel = new MyPanel();
         ActionListener PrintLine = new ActionListener() {
@@ -36,16 +37,27 @@ public class Main {
                 f.setVisible(true);
             }
         };
+
+        clearButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                smallField.setText("");
+                numbers.setText("");
+                myPanel.clear();
+                myPanel.repaint();
+            }
+        });
+
         numbers.addActionListener(PrintLine);
         button.addActionListener(PrintLine);
 
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel contents = new JPanel(new FlowLayout(FlowLayout.LEFT));
 
-        //Создание панели с текстовыми полями
         contents.add(numbers);
         contents.add(smallField);
         contents.add(button);
+        contents.add(clearButton);
+
         f.setContentPane(contents);
 
         myPanel.repaint();

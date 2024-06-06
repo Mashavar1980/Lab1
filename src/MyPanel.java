@@ -1,6 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.util. ArrayList;
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MyPanel extends JPanel {
@@ -175,7 +175,12 @@ public class MyPanel extends JPanel {
     public void setHeight(int height){
         this.height = height;
     }
-    public void setStep(int step){
+    public void setStep(int step) {
         this.step = step;
+    }
+
+    public void clear() {
+        outlist.clear();
+        repaint();
     }
 }
