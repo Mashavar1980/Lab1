@@ -44,6 +44,49 @@ public class MyPanel extends JPanel {
                     segment(4);
                     segment(5);
                     break;
+                case "4":
+                    segment(2);
+                    segment(3);
+                    segment(4);
+                    segment(7);
+                    break;
+                case "5":
+                    segment(1);
+                    segment(3);
+                    segment(4);
+                    segment(5);
+                    segment(7);
+                    break;
+                case "6":
+                    segment(1);
+                    segment(3);
+                    segment(4);
+                    segment(5);
+                    segment(6);
+                    segment(7);
+                    break;
+                case "7":
+                    segment(1);
+                    segment(2);
+                    segment(4);
+                    break;
+                case "8":
+                    segment(1);
+                    segment(2);
+                    segment(3);
+                    segment(4);
+                    segment(5);
+                    segment(6);
+                    segment(7);
+                    break;
+                case "9":
+                    segment(1);
+                    segment(2);
+                    segment(3);
+                    segment(4);
+                    segment(5);
+                    segment(7);
+                    break;
             }
             x = x + step + width;
         }
