@@ -3,18 +3,18 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class MyPanel extends JPanel {
+public class MyPanel extends JPanel {  //объявление класса myPanel,который наследует класс JPanel для создания пользовательской панели с графикой
     public MyPanel() {
         setBorder(BorderFactory.createLineBorder(Color.black));
-    }
-    public Dimension getPreferredSize() { return new Dimension(1560, 700); }
-    private int x = 100;
-    private int y = 100;
-    private int width = 50;
-    private int height = 100;
-    private int step = 30;
-    private int delta = 3;
-    private ArrayList<Rectangle> outlist = new ArrayList<Rectangle>();
+    }   //конструквтор класса,который устанавливет черную границу для панели
+    public Dimension getPreferredSize() { return new Dimension(1560, 700); }  //преопределяет метод getPt=referredSize для установки предпочтительного размера панели
+    private int x = 100;          //
+    private int y = 100;          //
+    private int width = 50;       //
+    private int height = 100;     //объявляются и иницилизир приватные переменные для хранения координат,размеров и шага
+    private int step = 30;        //
+    private int delta = 3;        //
+    private ArrayList<Rectangle> outlist = new ArrayList<Rectangle>();   //создаётся массив для хранения объектов Rectangle,которые будут использ. для рисования сегментов
     public void setSymbols(String parm) {
         String[] arr = parm.replace(",", "").split("");
         for (String cifra : arr) {
@@ -129,8 +129,8 @@ public class MyPanel extends JPanel {
                     break;
             }
             x = x + step + width;
-        }
-    }
+        }                                  //метод setSymbols принимает строку символов,разбивает её на отдельные эл-ты и
+    }                                      //вызывает метод segment для соответ. сегментов каждого символа,затем обновляет x для след символа
     private void segment(int number){
         switch(number){
             case 1:outlist.add(new Rectangle(x+delta,y, x+width-delta,y));
@@ -153,9 +153,9 @@ public class MyPanel extends JPanel {
                 break;
             case 10:outlist.add(new Rectangle(x+delta, y+height-delta, x+width/2-delta/2, y+height/2+delta));
                 break;
-        }
-    }
-    public void paintComponent(Graphics g) {
+        }                                                      //метод segment добавляет объекты Rectangle в outlist,определяя различные
+    }                                                          //сегменты для отображения
+    public void paintComponent(Graphics g) {                       //метод paintComponent перерисовывает компонент,рисуя все линии,определённые в outlist
         super.paintComponent(g);
 
         for (Rectangle rect:outlist) {
@@ -177,9 +177,9 @@ public class MyPanel extends JPanel {
     }
     public void setStep(int step) {
         this.step = step;
-    }
+    }        //методы сет- для изменения значений X, Y и т.д.
 
-    public void clear() {
+    public void clear() {       //очищает список сегментов
         outlist.clear();
         repaint();
     }
